@@ -1,0 +1,55 @@
+go-app:
+  build: ./go-app  
+  ports:
+    - "3003"  
+  environment:
+    SERVICE_NAME: helloworld
+    SERVICE_TAGS: production
+
+# node-app2:
+  # build: ./node-app
+  # dns: ["172.17.0.1"]
+  # dns_search: ["service.consul"]
+  # ports:
+    # - "3001"
+  # environment:
+    # SERVICE_NAME: node-app2
+    # SERVICE_TAGS: production
+
+node-app:
+  build: ./node-app
+  ports:
+    - "3000"  
+  environment:
+    SERVICE_NAME: helloworld2
+    SERVICE_TAGS: production
+
+consul:
+  command: -server -bootstrap
+  image: progrium/consul:latest
+  ports:
+    - "8400:8400"
+    - "8500:8500"
+    - "8600:53/udp"
+    - "172.17.0.1:53:53/udp"
+
+registrator:
+  command: -ip=192.168.99.100 consul://consul:8500
+  image: gliderlabs/registrator:latest
+  volumes:
+    - "/var/run/docker.sock:/tmp/docker.sock"
+  links:
+    - consul
+
+nginx:
+  build: ./nginx
+  links:
+    - consul
+  ports:
+    - "80:80"
+  environment:
+    CONSUL_URL: consul:8500
+  # volumes:
+    # - ./etc/consul-template:/etc/consul-template
+  
+    
