@@ -1,12 +1,4 @@
 {
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:3002/",
-      "sslPort": 0
-    }
-  },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
@@ -18,7 +10,7 @@
     "web": {
       "commandName": "web",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:3002/api/",
+      "launchUrl": "http://localhost:3002/aspnet",
       "environmentVariables": {
         "DNX_IIS_RUNTIME_FRAMEWORK ": "dnx46",
         "Hosting:Environment": "Development"

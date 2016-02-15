@@ -24,6 +24,14 @@ node-app:
     SERVICE_NAME: helloworld2
     SERVICE_TAGS: production
 
+aspnet-core-app:
+  build: ./aspnet-core-app/src/ASP.NET-Core-App  
+  ports:
+    - "3002"  
+  environment:
+    SERVICE_NAME: helloworld3
+    SERVICE_TAGS: production
+    
 consul:
   command: -server -bootstrap
   image: progrium/consul:latest

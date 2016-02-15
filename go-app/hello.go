@@ -18,6 +18,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/go", handler)
 	http.ListenAndServe(":3003", nil)
 }

@@ -8,13 +8,13 @@ using Microsoft.AspNet.Hosting;
 
 namespace ASP.NET_Core_App.Controllers
 {
-    [Route("api/")]
+    [Route("aspnet/")]
     public class ValuesController : Controller
     {        
         [HttpGet]
         public async Task<string> Get()
         {
-            return await Task.FromResult(string.Format("Hello World! from ASP.NET_Core_App - {0}", new HostingEnvironment().EnvironmentName));
+            return await Task.FromResult(string.Format("Hello World! from ASP.NET_Core_App! environment = {0}", new HostingEnvironment().EnvironmentName));
         }       
     }
 }
