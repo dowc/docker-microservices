@@ -5,8 +5,8 @@
   },
 
   "commands": {
-    "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --server.urls http://*:5000:3002",
-    "weblistener": "Microsoft.AspNet.Hosting --server WebListener  --server.urls http://*:5000:3002"
+    "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --server.urls http://*:3002",
+    "weblistener": "Microsoft.AspNet.Hosting --server WebListener  --server.urls http://*:3002"
   },
 
   "frameworks": {

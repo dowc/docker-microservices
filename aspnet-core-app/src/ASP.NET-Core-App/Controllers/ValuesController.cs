@@ -14,7 +14,12 @@ namespace ASP.NET_Core_App.Controllers
         [HttpGet]
         public async Task<string> Get()
         {
+#if DNX451
+            return await Task.FromResult(string.Format("Hello World! from ASP.NET_Core_App! environment = {0}", System.Net.Dns.GetHostName()));
+#endif
+#if DNXCORE50
             return await Task.FromResult(string.Format("Hello World! from ASP.NET_Core_App! environment = {0}", new HostingEnvironment().EnvironmentName));
+#endif
         }       
     }
 }
